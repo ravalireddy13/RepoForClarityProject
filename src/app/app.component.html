@@ -1,0 +1,35 @@
+<div class="main-container">
+
+  <header class="header">
+    <!-- <clr-icon shape="home"></clr-icon> -->
+
+    Welcome to my Page
+  </header>
+
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+
+
+    </div>
+
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+      <a clrVerticalNavLink routerLinkActive="active" routerLink="">
+       
+        About Me
+      </a>
+
+      <clr-vertical-nav-group>
+
+        Projects
+        <clr-vertical-nav-group-children>
+          <a clrVerticalNavLink routerLinkActive="active" routerLink="projects/mirlo">
+            Mirlo
+          </a>
+
+        </clr-vertical-nav-group-children>
+      </clr-vertical-nav-group>
+
+    </clr-vertical-nav>
+  </div>
+</div>

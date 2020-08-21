@@ -1,0 +1,38 @@
+<div class="content-container">
+    <div class="content-area">
+
+        <clr-datagrid>
+            <clr-dg-column>Actions</clr-dg-column>
+            <clr-dg-column>User ID</clr-dg-column>
+            <clr-dg-column>First Name</clr-dg-column>
+            <clr-dg-column>Last Name</clr-dg-column>
+            <clr-dg-column>Email</clr-dg-column>
+            <clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
+                <ng-container *ngIf="user.id === editUser?.id">
+                    <clr-dg-cell>
+                        <clr-icon shape="floppy" class="btn btn-sm" (click)="save(user)"></clr-icon>
+                    </clr-dg-cell>
+                    <clr-dg-cell><input clrInput [(ngModel)]="editUser.id" name="id" /></clr-dg-cell>
+                    <clr-dg-cell><input clrInput [(ngModel)]="editUser.first_name" name="first_name" />
+                    </clr-dg-cell>
+                    <clr-dg-cell><input clrInput [(ngModel)]="editUser.last_name" name="last_name" /></clr-dg-cell>
+                    <clr-dg-cell><input clrInput [(ngModel)]="editUser.email" name="email" /></clr-dg-cell>
+                </ng-container>
+                <ng-container *ngIf="editUser?.id !== user.id">
+                    <clr-dg-cell>
+                        <clr-icon shape="pencil" class="btn btn-sm" (click)="editUser = user"></clr-icon>
+                        <clr-icon shape="trash" class="btn btn-sm" (click)="removeItem(user.id)"></clr-icon>
+                    </clr-dg-cell>
+                    <clr-dg-cell>{{user.id}}</clr-dg-cell>
+                    <clr-dg-cell>{{user.first_name}}</clr-dg-cell>
+                    <clr-dg-cell>{{user.last_name}}</clr-dg-cell>
+                    <clr-dg-cell>{{user.email}}</clr-dg-cell>
+                </ng-container>
+            </clr-dg-row>
+            <clr-dg-footer>
+                {{users.length}} users
+                <clr-dg-pagination></clr-dg-pagination>
+            </clr-dg-footer>
+        </clr-datagrid>
+    </div>
+</div>
