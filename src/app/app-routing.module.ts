@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { aboutMeComponent } from './AboutMe/aboutMe.component';
 import { ProjectsComponent } from './Projects/projects.component';
 import { MirloComponent } from './Projects/Mirlo/mirlo.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
 
 
   { path: 'projects/mirlo', component: MirloComponent },
+  {
+    path: 'posts', component: PostsComponent
+  },
 
 
 
